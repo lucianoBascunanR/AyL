@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The New Abnormal - AyL</title>
+    <title>AyL - The New Abnormal</title>
     <style>
         :root {
-            --purple-dark: #1a0b2e;
+            --bg-dark: #0f051a; /* Morado muy oscuro */
             --neon-purple: #bc13fe;
             --electric-blue: #00d4ff;
-            --light-fantasy: #f0f0f5;
+            --win-gray: #e0e0e0;
         }
 
         body {
-            background: linear-gradient(135deg, var(--purple-dark) 0%, #000 100%);
-            color: white;
-            font-family: 'Courier New', Courier, monospace; /* Look indie/retro */
+            background-color: var(--bg-dark);
+            background-image: radial-gradient(circle, #2a0a4d 0%, #0f051a 100%);
+            color: #fff;
+            font-family: 'Courier New', Courier, monospace;
             margin: 0;
             padding: 20px;
             display: flex;
@@ -23,130 +24,172 @@
             align-items: center;
         }
 
-        /* Título tipo The Strokes */
-        .strokes-header {
+        .header-title {
             text-align: center;
-            border-bottom: 2px solid var(--neon-purple);
-            padding-bottom: 10px;
-            margin-bottom: 30px;
-            text-transform: uppercase;
-            letter-spacing: 5px;
             color: var(--electric-blue);
-            text-shadow: 2px 2px var(--neon-purple);
-        }
-
-        /* Widget Spotify */
-        .spotify-container {
+            text-shadow: 3px 3px var(--neon-purple);
+            text-transform: uppercase;
+            letter-spacing: 4px;
             margin-bottom: 40px;
-            box-shadow: 0 0 20px var(--neon-purple);
-            border-radius: 12px;
-            overflow: hidden;
         }
 
-        /* Grid de Ventanas Light Fantasy */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+        /* Contenedor de música */
+        .music-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
             width: 100%;
-            max-width: 1000px;
+            max-width: 1100px;
+            margin-bottom: 50px;
         }
 
-        /* Ventanas Estilo Windows "Light Fantasy" */
-        .win-card {
-            background: var(--light-fantasy);
-            border-radius: 3px;
-            border: 2px solid #fff;
-            box-shadow: 8px 8px 0px rgba(188, 19, 254, 0.3);
-            color: #333;
-            overflow: hidden;
-            transition: transform 0.3s;
+        /* Ventanas de música y fotos */
+        .win-box {
+            background: var(--win-gray);
+            border: 3px solid #fff;
+            box-shadow: 8px 8px 0px var(--neon-purple);
+            color: #000;
+            width: 480px; /* Tamaño grande para los videos */
+            max-width: 95%;
         }
 
-        .win-card:hover {
-            transform: translateY(-5px) rotate(1deg);
-        }
-
-        .win-card-header {
-            background: linear-gradient(90deg, #d1d1e0, #ffffff);
+        .win-header {
+            background: linear-gradient(90deg, #4b0082, #bc13fe);
+            color: white;
             padding: 5px 10px;
-            border-bottom: 1px solid #999;
-            font-size: 12px;
+            font-size: 14px;
             font-weight: bold;
             display: flex;
             justify-content: space-between;
         }
 
-        .win-card-content {
-            padding: 10px;
+        .win-content {
+            padding: 15px;
             text-align: center;
         }
 
-        .win-card img {
+        /* Galería de fotos inferior */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
             width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border: 1px solid #ccc;
-            filter: sepia(20%) contrast(110%);
+            max-width: 1100px;
         }
 
-        .win-card p {
-            font-size: 0.9rem;
+        .photo-card {
+            background: #fff;
+            border: 1px solid #999;
+            padding: 10px;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: auto;
+            border: 1px solid #333;
+            filter: grayscale(20%);
+        }
+
+        .photo-desc {
             margin-top: 10px;
-            line-height: 1.4;
-            color: #444;
+            font-family: 'Tahoma', sans-serif;
+            font-size: 0.9rem;
+            color: #333;
+            border-top: 1px solid #ccc;
+            padding-top: 5px;
         }
 
-        .dot { height: 12px; width: 12px; background-color: #ff5f56; border-radius: 50%; display: inline-block; }
+        .close-btn { cursor: pointer; }
+
+        .win-box iframe:hover {
+            filter: sepia(40%) contrast(150%) hue-rotate(290deg);
+            transition: 0.3s;
+        }
+
+        /* Efecto de texto parpadeante para el título */
+        .header-title {
+            animation: blink 2s infinite;
+        }
+
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
     </style>
 </head>
 <body>
 
-    <h1 class="strokes-header">Todo lo que escuchas se guarda<br>en tu mente,<br> en cada momento y palabra que te<br> regalo<br> te haga volver a sonreir.<br> -L.</h1>
+    <h1 class="header-title">The Strokes & Memories</h1>
 
-    <div class="spotify-container">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/intl-es/track/4fPBB44eDH71YohayI4eKV?si=f873027380444c0a" width="300" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    <div class="music-grid">
+        
+        <div class="win-box">
+            <div class="win-header">
+                <span>Media_Player - You Only Live Once.mp4</span>
+                <span class="close-btn">[X]</span>
+            </div>
+            <div class="win-content">
+                <iframe width="100%" height="280" 
+                    src="https://www.youtube.com/embed/S_oMPbUuXhc" 
+                    title="The Strokes" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+                <p><b>The Strokes</b> - First Impressions of Earth</p>
+            </div>
+        </div>
+
+        <div class="win-box">
+            <div class="win-header">
+                <span>Media_Player - Freaking Out The Neighborhood.mp4</span>
+                <span class="close-btn">[X]</span>
+            </div>
+            <div class="win-content">
+                <iframe width="100%" height="280" 
+                    src="https://www.youtube.com/embed/Xp0fG6-X6L0" 
+                    title="Mac DeMarco" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+                <p><b>Mac DeMarco</b> - 2</p>
+            </div>
+        </div>
+
     </div>
+
+    <h2 style="color: var(--electric-blue);">[ Galería de Archivos ]</h2>
 
     <div class="gallery-grid">
         
-        <div class="win-card">
-            <div class="win-card-header">
-                <span>image_01.jpg</span>
-                <span class="dot"></span>
+        <div class="win-box photo-card">
+            <div class="win-header" style="background: #ccc; color: #000; border-bottom: 1px solid #666;">
+                <span>nuestra_foto_01.jpg</span>
             </div>
-            <div class="win-card-content">
-                <img src="TU_FOTO_1.jpg" alt="Recuerdo 1">
-                <p><strong>Ese día en el parque:</strong> No sabíamos que estábamos creando el mejor recuerdo del mundo.</p>
-            </div>
-        </div>
-
-        <div class="win-card">
-            <div class="win-card-header">
-                <span>memories.exe</span>
-                <span class="dot"></span>
-            </div>
-            <div class="win-card-content">
-                <img src="TU_FOTO_2.jpg" alt="Recuerdo 2">
-                <p><strong>Concierto o salida:</strong> Con la música de fondo y la vibra de siempre.</p>
+            <div class="win-content">
+                <img src="tu_imagen_1.jpg" alt="Recuerdo 1">
+                <p class="photo-desc">Aquí pones la explicación de esta foto. Un momento especial que quieras recordar.</p>
             </div>
         </div>
 
-        <div class="win-card">
-            <div class="win-card-header">
-                <span>eternal_summer.png</span>
-                <span class="dot"></span>
+        <div class="win-box photo-card">
+            <div class="win-header" style="background: #ccc; color: #000; border-bottom: 1px solid #666;">
+                <span>nuestra_foto_02.jpg</span>
             </div>
-            <div class="win-card-content">
-                <img src="TU_FOTO_3.jpg" alt="Recuerdo 3">
-                <p><strong>Una frase especial:</strong> Porque aunque pasen los domingos, aquí nada es deprimente.</p>
+            <div class="win-content">
+                <img src="tu_imagen_2.jpg" alt="Recuerdo 2">
+                <p class="photo-desc">Otra descripción aquí. Manteniendo la estética limpia y nostálgica.</p>
             </div>
         </div>
 
     </div>
 
-    <footer style="margin-top: 50px; opacity: 0.5; font-size: 10px;">
-        AyL © 2024 - Todos los derechos reservados pa' mi
+    <footer style="margin: 50px; font-size: 12px; color: var(--neon-purple);">
+        A&L Archive // 2000s Vibes Only
     </footer>
 
 </body>
