@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The New Abnormal - AyL</title>
+    <style>
+        :root {
+            --purple-dark: #1a0b2e;
+            --neon-purple: #bc13fe;
+            --electric-blue: #00d4ff;
+            --light-fantasy: #f0f0f5;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--purple-dark) 0%, #000 100%);
+            color: white;
+            font-family: 'Courier New', Courier, monospace; /* Look indie/retro */
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Título tipo The Strokes */
+        .strokes-header {
+            text-align: center;
+            border-bottom: 2px solid var(--neon-purple);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: var(--electric-blue);
+            text-shadow: 2px 2px var(--neon-purple);
+        }
+
+        /* Widget Spotify */
+        .spotify-container {
+            margin-bottom: 40px;
+            box-shadow: 0 0 20px var(--neon-purple);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        /* Grid de Ventanas Light Fantasy */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        /* Ventanas Estilo Windows "Light Fantasy" */
+        .win-card {
+            background: var(--light-fantasy);
+            border-radius: 3px;
+            border: 2px solid #fff;
+            box-shadow: 8px 8px 0px rgba(188, 19, 254, 0.3);
+            color: #333;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .win-card:hover {
+            transform: translateY(-5px) rotate(1deg);
+        }
+
+        .win-card-header {
+            background: linear-gradient(90deg, #d1d1e0, #ffffff);
+            padding: 5px 10px;
+            border-bottom: 1px solid #999;
+            font-size: 12px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .win-card-content {
+            padding: 10px;
+            text-align: center;
+        }
+
+        .win-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border: 1px solid #ccc;
+            filter: sepia(20%) contrast(110%);
+        }
+
+        .win-card p {
+            font-size: 0.9rem;
+            margin-top: 10px;
+            line-height: 1.4;
+            color: #444;
+        }
+
+        .dot { height: 12px; width: 12px; background-color: #ff5f56; border-radius: 50%; display: inline-block; }
+    </style>
+</head>
+<body>
+
+    <h1 class="strokes-header">Todo lo que escuchas se guarda<br>en tu mente,<br> en cada momento y palabra que te<br> regalo<br> te haga volver a sonreir.<br> -L.</h1>
+
+    <div class="spotify-container">
+        <iframe style="border-radius:12px" src="https://open.spotify.com/intl-es/track/4fPBB44eDH71YohayI4eKV?si=f873027380444c0a" width="300" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+
+    <div class="gallery-grid">
+        
+        <div class="win-card">
+            <div class="win-card-header">
+                <span>image_01.jpg</span>
+                <span class="dot"></span>
+            </div>
+            <div class="win-card-content">
+                <img src="TU_FOTO_1.jpg" alt="Recuerdo 1">
+                <p><strong>Ese día en el parque:</strong> No sabíamos que estábamos creando el mejor recuerdo del mundo.</p>
+            </div>
+        </div>
+
+        <div class="win-card">
+            <div class="win-card-header">
+                <span>memories.exe</span>
+                <span class="dot"></span>
+            </div>
+            <div class="win-card-content">
+                <img src="TU_FOTO_2.jpg" alt="Recuerdo 2">
+                <p><strong>Concierto o salida:</strong> Con la música de fondo y la vibra de siempre.</p>
+            </div>
+        </div>
+
+        <div class="win-card">
+            <div class="win-card-header">
+                <span>eternal_summer.png</span>
+                <span class="dot"></span>
+            </div>
+            <div class="win-card-content">
+                <img src="TU_FOTO_3.jpg" alt="Recuerdo 3">
+                <p><strong>Una frase especial:</strong> Porque aunque pasen los domingos, aquí nada es deprimente.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer style="margin-top: 50px; opacity: 0.5; font-size: 10px;">
+        AyL © 2024 - Todos los derechos reservados pa' mi
+    </footer>
+
+</body>
+</html>
