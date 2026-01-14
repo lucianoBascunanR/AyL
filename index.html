@@ -6,13 +6,21 @@
     <title>AyL - Memories</title>
     <style>
         body {
-            background-color: #000; /* Fondo negro Dark Fantasy */
+            background-color: #000;
             background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://www.transparenttextures.com/patterns/dark-matter.png');
             color: #e0e0e0;
             font-family: 'Tahoma', 'Verdana', sans-serif;
+            margin: 0;
+            padding: 0;
+            
+            /* Centrado horizontal SOLAMENTE */
+            display: flex;
             flex-direction: column;
-            align-items: center;
-            padding: 20px;
+            align-items: center; 
+            
+            /* Permitir scroll si la ventana es muy larga */
+            min-height: 100vh;
+            overflow-y: auto; 
             overflow-x: hidden;
         }
 
@@ -23,12 +31,15 @@
 
         /* Ventana estilo Windows XP */
         .window {
-            width: 90%;
+            width: 95%; /* Un poco más de aire a los lados */
             max-width: 600px;
             background: #c0c0c0;
             border: 2px solid #ffffff;
             box-shadow: 4px 4px 0px #555;
-            margin-top: 50px;
+            
+            /* Margen arriba para que NO se corte, y auto a los lados */
+            margin: 30px auto; 
+            position: relative;
         }
 
         .title-bar {
@@ -107,12 +118,12 @@
         </div>
         <div class="window-body">
             <h1>Para ti Almendra ;)</h1>
-            <p>Para mi "¿Casi nada?" o "¿Casi todo?" askjda - 2019-202x?</p>
+            <p>Para mi "¿Casi nada?" o "¿Casi todo?" askjda - 2019-202x?<br><br> Me ccge de risa haciendo esto XD</p>
             
             <img src="NosotrosInicio.jpg" class="photo-frame" alt="Nosotros">
             
             <div style="font-style: italic; margin: 20px 0; border-left: 3px solid #000; padding-left: 10px;">
-                "Con esto lo quiero que nos riamos un rato, ya que fue suficiente de toda esa mierda emo y triste para ti y para mi, estoy haciendo esto ebrio y me da risa la foto jajajaj bueno, quieres ver más. ¿Aceptas?."
+                "Quiero que nos rias como yo un rato, ya que fue suficiente de toda esa mierda emo y triste para ti y para mi, estoy haciendo esto ebrio y me da risa la foto jajajaj bueno, quieres ver más. ¿Aceptas?."
             </div>
 
             <button class="btn-xp" onclick="lanzarMagia()">¿Click para continuar?</button>
