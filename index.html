@@ -80,6 +80,22 @@
             transform: translate(-50%, -50%);
             z-index: 100;
         }
+
+        /* Estilo para los elementos que caen */
+        .clippy-drop {
+            position: fixed;
+            top: -50px;
+            font-size: 2rem;
+            z-index: 9999;
+            pointer-events: none; /* Para que no estorben al hacer clic */
+            animation: fall linear forwards;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
     </style>
 </head>
 <body>
@@ -96,7 +112,7 @@
             <img src="NosotrosInicio.jpg" class="photo-frame" alt="Nosotros">
             
             <div style="font-style: italic; margin: 20px 0; border-left: 3px solid #000; padding-left: 10px;">
-                "Solo quiero que nos riamos con esto, ya fue suficiente de toda esa mierda emo y triste para ti y para mi. ¿Aceptas?."
+                "Con esto lo quiero que nos riamos un rato, ya que fue suficiente de toda esa mierda emo y triste para ti y para mi, estoy haciendo esto ebrio y me da risa la foto jajajaj bueno, quieres ver más. ¿Aceptas?."
             </div>
 
             <button class="btn-xp" onclick="lanzarMagia()">¿Click para continuar?</button>
@@ -113,11 +129,42 @@
 
     <script>
         function lanzarMagia() {
+            // 1. Mostramos la ventana de error
             document.getElementById('error-msg').style.display = 'block';
-            // Opcional: Sonido de error de Windows
-            alert("Dame una cocada para continuar.");
+            
+            // 2. Creamos la lluvia
+            const emojis = ['📎', '💜', '💾', '✨', '💿']; // Clips, corazones y tecnología
+            
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const drop = document.createElement('div');
+                    drop.className = 'clippy-drop';
+                    
+                    // Elegimos un emoji al azar de la lista
+                    drop.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+                    
+                    // Posición horizontal aleatoria
+                    drop.style.left = Math.random() * 100 + "vw";
+                    
+                    // Velocidad aleatoria (entre 2 y 5 segundos)
+                    drop.style.animationDuration = (Math.random() * 3 + 2) + "s";
+                    
+                    // Tamaño aleatorio
+                    drop.style.fontSize = (Math.random() * 20 + 20) + "px";
+
+                    document.body.appendChild(drop);
+
+                    // Borramos el elemento después de que termine de caer para no saturar la web
+                    setTimeout(() => drop.remove(), 5000);
+                }, i * 100); // Esto hace que no caigan todos de golpe, sino en ráfaga
+            }
+
+            // El alert que ya tenías
+            alert("¡Advertencia! Dame una cocada para continuar.");
         }
+        // ESTA ES LA FUNCIÓN QUE TE LLEVA A LA OTRA PÁGINA
         function cerrarError() {
+            console.log("Redirigiendo...");
             window.location.href = "recuerdos.html";
         }
     </script>
