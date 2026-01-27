@@ -129,6 +129,123 @@
             50% { opacity: 0.7; }
             100% { opacity: 1; }
         }
+
+        /* Contenedor de la sección moderna */
+        .modern-section {
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.03); /* Un toque muy sutil de luz */
+            border-radius: 30px;
+            margin-top: 50px;
+        }
+
+        /* Título moderno con degradado */
+        .modern-title {
+            font-family: 'Cinzel', serif; /* Usamos la elegante que elegimos antes */
+            font-size: 1.8rem;
+            text-align: center;
+            background: linear-gradient(90deg, #00d2ff, #9d00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        /* Ventanas modernas (Glassmorphism) */
+        .modern-box {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px); /* Efecto de vidrio esmerilado */
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .modern-box:hover {
+            transform: translateY(-10px);
+            border: 1px solid var(--electric-blue);
+            box-shadow: 0 15px 40px rgba(0, 210, 255, 0.2);
+        }
+
+        .modern-content {
+            padding: 15px;
+            text-align: left;
+        }
+
+        .modern-content p {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.1rem;
+            margin-top: 10px;
+            color: #fff;
+            opacity: 0.8;
+        }
+
+        /* Contenedor de las tarjetas */
+        .present-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        /* La tarjeta base */
+        .memory-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 15px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .memory-card:hover {
+            transform: scale(1.05);
+            border-color: rgba(0, 210, 255, 0.5);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(157, 0, 255, 0.2);
+        }
+
+        /* Imagen dentro de la tarjeta */
+        .memory-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
+
+        /* Texto de la tarjeta */
+        .memory-info h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            color: #fff;
+            margin: 0;
+        }
+
+        .memory-info p {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 5px;
+        }
+
+        /* Badge indicador (opcional) */
+        .link-type {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            color: var(--electric-blue);
+            text-transform: uppercase;
+        }
     </style>
 </head>
 <body>
@@ -243,9 +360,61 @@
 
     </div>
 
-    <footer style="margin: 50px; font-size: 12px; color: var(--neon-purple);">
-        A&L Archive // Todos los derechso reservados al curao
-    </footer>
+<section class="modern-section">
+    <h2 class="modern-title">[ Nuevos momentos si es que tu mente maquiavelica sigue trabajando 3:) ]</h2>
 
+    <div class="music-grid">
+        <div class="modern-box">
+            <div class="modern-content">
+                <iframe width="100%" height="280"
+                    src="https://www.youtube.com/embed/uNuMH2i6wdI?si=Ys-4BK3p7Sk-Tmjs"
+                    title="Lana Del Rey - Cherry" 
+                    frameborder="0" 
+                    style="border-radius: 12px;"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+                <p><b>Lana Del Rey</b> — Cherry, me gusto ese momento.</p>
+            </div>
+        </div>
+
+        <div class="modern-box">
+            <div class="modern-content">
+                <iframe width="100%" height="280" 
+                    src="https://www.youtube.com/embed/lxPDvuV9Z88?si=mHLqrJQZPVnOj9G3" 
+                    title="Macha Y El Bloque Dep - Solo Tú" 
+                    frameborder="0" 
+                    style="border-radius: 12px;"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+                <p><b>Macha Y El Bloque Depre.</b> — solo Tú. No hay msj cripticos.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="present-grid">
+        <div class="memory-card" onclick="window.open('https://open.spotify.com/intl-es/track/0NCgk4IqVNAAEKOgBdnq2D?si=ebbb4d26e5884735', '_blank')">
+            <span class="link-type">Spotify 🎵</span>
+            <img src="aveces.jpeg" class="memory-img" alt="Momento actual">
+            <div class="memory-info">
+                <h3>Me gusta esta canción, no soy el modelo de salud mental.</h3>
+                <p>"A veces las cosas no salen como uno quiere pero si o si, hay un precesnte y una opcion que te hara sentir mejor que ayer."</p>
+                <p class="photo-desc">Solo estoy esperando tu invitación.</p>
+            </div>
+        </div>
+
+        <div class="memory-card" onclick="window.location.href='https://open.spotify.com/intl-es/track/5J7teKIJGtqVypgYI6sqXj?si=0c5c4f7b05744d12'">
+            <span class="link-type">Spotify 🎵</span>
+            <img src="pensamientos.jpeg" class="memory-img" alt="Momento actual">
+            <div class="memory-info">
+                <h3>Mis pensamientos son variados pero si tu quieres te los puedo recitar.</h3>
+                <p>ESte tema, te mudaste de bad bunny y otro x. No quiero mover arfil sin sin descuidar a la Rey, con el caballo doy salto encima de cualquier peon, la palabra del Rey mueve cualquier torre y el jaque te lo hago cuando este todo alineado.</p>
+                <p class="photo-desc">Voy a boxeo, espero no veas esto aun no lo termino. Pero te enviare una foto. Hoy voy a leer. O quiza vaya a emborracharme nadie lo sabe x eso suelto. PD: Mejor te lo digo dsps.</p>
+            </div>
+        </div>
+    </div>
+</section>
+ 
 </body>
 </html>
