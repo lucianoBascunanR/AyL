@@ -130,11 +130,14 @@
         </div>
     </div>
 
-    <div id="error-msg" class="window" style="width: 300px;">
-        <div class="title-bar"><span>SYSTEM ERROR</span></div>
+    <div id="error-msg" class="window" style="width: 320px;">
+        <div class="title-bar"><span>SYSTEM LOGIN</span></div>
         <div class="window-body">
-            <p>⚠ ERROR: En caso de que las cocadas no exitan, por favor retirarse o darme otro regalo.</p>
-            <button class="btn-xp" onclick="cerrarError()">Continuar de todos modos</button>
+            <p>⚠ Se requiere autenticación para proceder.</p>
+            <input type="password" id="passInput" placeholder="Contraseña..." 
+                style="width: 80%; padding: 5px; margin-bottom: 10px; border: 2px inset #eee;">
+            <br>
+            <button class="btn-xp" onclick="validarPassword()">Desbloquear</button>
         </div>
     </div>
 
@@ -175,8 +178,34 @@
         }
         // ESTA ES LA FUNCIÓN QUE TE LLEVA A LA OTRA PÁGINA
         function cerrarError() {
-            console.log("Redirigiendo...");
-            window.location.href = "recuerdos.html";
+            // Definimos la contraseña aquí
+            const claveCorrecta = "nuestrafecha"; // <--- CAMBIA ESTO por la palabra que quieras
+
+            // Pedimos la contraseña al usuario
+            let password = prompt("Ingrese la clave secreta para acceder a los recuerdos:");
+
+            if (password === claveCorrecta) {
+                alert("Acceso concedido. Cargando momentos maquiavélicos...");
+                window.location.href = "recuerdos.html";
+            } else if (password === null) {
+                // Si la persona le da a "Cancelar"
+                alert("Acceso cancelado.");
+            } else {
+                // Si se equivoca
+                alert("Clave incorrecta. Inténtalo de nuevo si te atreves.");
+            }
+        }
+
+        function validarPassword() {
+            const pass = document.getElementById('passInput').value;
+            const claveCorrecta = "tengomuchodolor"; // Pon la clave que quieras aquí
+
+            if (pass === claveCorrecta) {
+                window.location.href = "recuerdos.html";
+            } else {
+                alert("Clave incorrecta.");
+                document.getElementById('passInput').value = ""; // Limpia el cuadro
+            }
         }
     </script>
 </body>
