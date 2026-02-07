@@ -177,34 +177,35 @@
             alert("¡Advertencia! Dame una cocada para continuar.");
         }
         // ESTA ES LA FUNCIÓN QUE TE LLEVA A LA OTRA PÁGINA
+        // SI USAS EL PROMPT (Ventana blanca automática)
         function cerrarError() {
-            // Definimos la contraseña aquí
-            const claveCorrecta = "nuestrafecha"; // <--- CAMBIA ESTO por la palabra que quieras
-
-            // Pedimos la contraseña al usuario
+            const claveCorrecta = "nuestrafecha"; 
             let password = prompt("Ingrese la clave secreta para acceder a los recuerdos:");
 
             if (password === claveCorrecta) {
+                // CREAMOS LA LLAVE AQUÍ
+                sessionStorage.setItem('accesoPermitido', 'true');
                 alert("Acceso concedido. Cargando momentos maquiavélicos...");
                 window.location.href = "recuerdos.html";
             } else if (password === null) {
-                // Si la persona le da a "Cancelar"
                 alert("Acceso cancelado.");
             } else {
-                // Si se equivoca
                 alert("Clave incorrecta. Inténtalo de nuevo si te atreves.");
             }
         }
 
+        // SI USAS EL CUADRO DE TEXTO (Input en la ventana)
         function validarPassword() {
             const pass = document.getElementById('passInput').value;
-            const claveCorrecta = "tengomuchodolor"; // Pon la clave que quieras aquí
+            const claveCorrecta = "tengomuchodolor"; 
 
             if (pass === claveCorrecta) {
+                // CREAMOS LA LLAVE AQUÍ TAMBIÉN
+                sessionStorage.setItem('accesoPermitido', 'true');
                 window.location.href = "recuerdos.html";
             } else {
                 alert("Clave incorrecta.");
-                document.getElementById('passInput').value = ""; // Limpia el cuadro
+                document.getElementById('passInput').value = ""; 
             }
         }
     </script>

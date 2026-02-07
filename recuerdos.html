@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <script>
+        // El portero revisa si existe la llave antes de mostrar nada
+        if (sessionStorage.getItem('accesoPermitido') !== 'true') {
+            alert("⛔ Acceso Denegado. Por favor, ingresa la clave en la página de inicio.");
+            window.location.href = "index.html";
+        }
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
